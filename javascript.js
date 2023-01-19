@@ -5,7 +5,7 @@ var horario = new Date()
 var horas = horario.getHours()
 var minutos = horario.getMinutes()
 
-var time = document.getElementById("time")
+var time = document.getElementById("horarioAtual")
 
 var html = window.document.getElementById("html")
 
@@ -18,7 +18,7 @@ function verificarHora() {
 
     if(horas >= 12 && horas < 18) {
 
-        time.innerHTML = "e agora está de tarde, Horário Atual: " + horas + ":" + String(horario.getMinutes()).padStart(2, "0");
+        time.innerHTML = "<h2> Tarde: </h2> " + "<h2> " + horas + ":" + String(horario.getMinutes()).padStart(2, "0") + "</h2>"
         html.style.backgroundImage = "linear-gradient(120deg, rgb(255, 101, 74), rgb(255, 217, 4)"
         tarde = true
         noite = false
@@ -28,7 +28,7 @@ function verificarHora() {
 
     } else if(horas >= 18 && horas < 24) {
 
-        time.innerHTML = "e agora está de noite, Horário Atual: " + horas + ":" + String(horario.getMinutes()).padStart(2, "0");
+        time.innerHTML = "<h2> Noite: </h2> " + "<h2> " + horas + ":" + String(horario.getMinutes()).padStart(2, "0") + "</h2>"
         html.style.backgroundImage = "linear-gradient(45deg, #000000, #030F33)"
         html.style.color = "white"
         contador = 4
@@ -41,7 +41,8 @@ function verificarHora() {
 
     } else if(horas >= 0 && horas < 6) {
         
-        time.innerHTML = "e agora está de madrugada, Horário Atual: " + horas + ":" + String(horario.getMinutes()).padStart(2, "0");
+    
+        time.innerHTML = "<h2> Madrugada: </h2> " + "<h2> " + horas + ":" + String(horario.getMinutes()).padStart(2, "0") + "</h2>"
         html.style.backgroundImage = "linear-gradient(45deg, black, #1C1C1C)"
         html.style.color = "white"
 
@@ -49,11 +50,12 @@ function verificarHora() {
         noite = false
         madrugada = true
         manha = false
+        contador = 9
 
     } else {
 
-        time.innerHTML = "e agora está de manha, Horário Atual: " + horas + ":" + String(horario.getMinutes()).padStart(2, "0");
-        html.style.backgroundImage = "linear-gradient(70deg, #020024, #008aa6 100%)"
+        time.innerHTML = "<h2> Manhã: </h2> " + "<h2> " + horas + ":" + String(horario.getMinutes()).padStart(2, "0") + "</h2>"
+        html.style.backgroundImage = "linear-gradient(70deg, #020024, #008aa6"
         html.style.color = "white"
         contador = 14
 
@@ -84,12 +86,21 @@ var musica7 =  new Audio("audios/The Borrowers.mp3")
 var musica8 =  new Audio("audios/After the Storm.mp3")
 var musica9 =  new Audio("audios/Sail Away.mp3")
 
+//madrugada
+var musica10 =  new Audio("audios/Nap.mp3")
+var musica11 =  new Audio("audios/Going Nowhere.mp3")
+var musica12 =  new Audio("audios/Something About You.mp3")
+var musica13 =  new Audio("audios/a little bit of hope.mp3")
+var musica14 =  new Audio("audios/Missing You.mp3")
+
 //manha
 var musica15 =  new Audio("audios/Coffee Shop.mp3")
 var musica16 =  new Audio("audios/saturday jam.mp3")
 var musica17 =  new Audio("audios/Memoria.mp3")
 var musica18 =  new Audio("audios/Slept Alone.mp3")
 var musica19 =  new Audio("audios/Writing All Day.mp3")
+
+
 
 var tocar = document.getElementById("tocar")
 var voltar = document.getElementById("voltar")
@@ -176,6 +187,46 @@ voltar.addEventListener("click", () => {
         musica9.pause()
         musica9.ariaCurrent = 0
         img.src = "images/smoking.gif"
+        contador--
+        tocar.innerHTML = "⏵"
+    }
+    else if(contador == 11 && madrugada == true) {
+        autor.innerHTML = "Hoffy Beats, darsena -  Nap"
+        musica9.pause()
+        musica9.ariaCurrent = 0
+        img.src = "images/cortinas.gif"
+        contador--
+        tocar.innerHTML = "⏵"
+    }
+    else if(contador == 12 && madrugada == true) {
+        autor.innerHTML = "Creative Self - Going Nowhere"
+        musica9.pause()
+        musica9.ariaCurrent = 0
+        img.src = "images/lustre.gif"
+        contador--
+        tocar.innerHTML = "⏵"
+    }
+    else if(contador == 13 && madrugada == true) {
+        autor.innerHTML = "NEOPLASMA & eva gomi tenshi & Osaki - Something About You"
+        musica9.pause()
+        musica9.ariaCurrent = 0
+        img.src = "images/neon.gif"
+        contador--
+        tocar.innerHTML = "⏵"
+    }
+    else if(contador == 14 && madrugada == true) {
+        autor.innerHTML = "Charlie - a little bit of hope"
+        musica9.pause()
+        musica9.ariaCurrent = 0
+        img.src = "images/quarto.gif"
+        contador--
+        tocar.innerHTML = "⏵"
+    }
+    else if(contador == 15 && madrugada == true) {
+        autor.innerHTML = "Purrple Cat - Missing You"
+        musica9.pause()
+        musica9.ariaCurrent = 0
+        img.src = "images/vaporwave.gif"
         contador--
         tocar.innerHTML = "⏵"
     }
@@ -299,6 +350,46 @@ pular.addEventListener("click", () => {
         contador++
         tocar.innerHTML = "⏵"
     }
+    else if(contador == 9 && madrugada == true) {
+        autor.innerHTML = "Hoffy Beats, darsena -  Nap"
+        musica9.pause()
+        musica9.ariaCurrent = 0
+        img.src = "images/cortinas.gif"
+        contador++
+        tocar.innerHTML = "⏵"
+    }
+    else if(contador == 10 && madrugada == true) {
+        autor.innerHTML = "Creative Self - Going Nowhere"
+        musica10.pause()
+        musica10.ariaCurrent = 0
+        img.src = "images/lustre.gif"
+        contador++
+        tocar.innerHTML = "⏵"
+    }
+    else if(contador == 11 && madrugada == true) {
+        autor.innerHTML = "NEOPLASMA & eva gomi tenshi & Osaki - Something About You"
+        musica11.pause()
+        musica11.ariaCurrent = 0
+        img.src = "images/neon.gif"
+        contador++
+        tocar.innerHTML = "⏵"
+    }
+    else if(contador == 12 && madrugada == true) {
+        autor.innerHTML = "Charlie - a little bit of hope"
+        musica12.pause()
+        musica12.ariaCurrent = 0
+        img.src = "images/quarto.gif"
+        contador++
+        tocar.innerHTML = "⏵"
+    }
+    else if(contador == 13 && madrugada == true) {
+        autor.innerHTML = "Purrple Cat - Missing You"
+        musica13.pause()
+        musica13.ariaCurrent = 0
+        img.src = "images/vaporwave.gif"
+        contador++
+        tocar.innerHTML = "⏵"
+    }
     else if(contador == 14 && manha == true) {
         autor.innerHTML = "BØJET - Coffee Shop"
         img.src = "images/manha.gif"
@@ -390,6 +481,7 @@ tocar.addEventListener("click", () => {
         musica6.play()
         tocar.innerHTML = "‖"
         pausar = false
+
     }else if(pausar == true && contador == 7 && noite == true) {
 
         autor.innerHTML = "Jon Kyoto & Seerlight - The Borrowers"
@@ -411,61 +503,95 @@ tocar.addEventListener("click", () => {
         musica9.play()
         tocar.innerHTML = "‖"
         pausar = false
+    }else if(pausar == true && contador == 10 && madrugada == true) {
+
+        autor.innerHTML = "Hoffy Beats, darsena -  Nap"
+        img.src = "images/cortinas.gif"
+        musica10.play()
+        tocar.innerHTML = "‖"
+        pausar = false
+    }
+    else if(pausar == true && contador == 11 && madrugada == true) {
+
+        autor.innerHTML = "Creative Self - Going Nowhere"
+        img.src = "images/lustre.gif"
+        musica11.play()
+        tocar.innerHTML = "‖"
+        pausar = false
+    }
+    else if(pausar == true && contador == 12 && madrugada == true) {
+
+        autor.innerHTML = "NEOPLASMA & eva gomi tenshi & Osaki - Something About You"
+        img.src = "images/neon.gif"
+        musica12.play()
+        tocar.innerHTML = "‖"
+        pausar = false
+    }else if(pausar == true && contador == 13 && madrugada == true) {
+
+        autor.innerHTML = "Charlie - a little bit of hope"
+        img.src = "images/quarto.gif"
+        musica13.play()
+        tocar.innerHTML = "‖"
+        pausar = false
+    }
+    else if(pausar == true && contador == 14 && madrugada == true) {
+
+        autor.innerHTML = "Purrple Cat - Missing You"
+        img.src = "images/vaporwave.gif"
+        musica14.play()
+        tocar.innerHTML = "‖"
+        pausar = false
     }
     else if(pausar == true && contador == 15 && manha == true) {
 
-        autor.innerHTML = "BØJET - Coffee Shop"
-        img.src = "images/smoking.gif"
         musica15.play()
         tocar.innerHTML = "‖"
         pausar = false
     }
     else if(pausar == true && contador == 16 && manha == true) {
 
-        autor.innerHTML = "RadicalRingtail - Saturday Jam"
-        img.src = "images/smoking.gif"
         musica16.play()
         tocar.innerHTML = "‖"
         pausar = false
     }
     else if(pausar == true && contador == 17 && manha == true) {
 
-        autor.innerHTML = "Mondo Loops x Mau - Memoria"
-        img.src = "images/smoking.gif"
         musica17.play()
         tocar.innerHTML = "‖"
         pausar = false
     }
     else if(pausar == true && contador == 18 && manha == true) {
 
-        autor.innerHTML = "Towerz x edelwize - Slept Alone"
-        img.src = "images/smoking.gif"
         musica18.play()
         tocar.innerHTML = "‖"
         pausar = false
     }
     else if(pausar == true && contador == 19 && manha == true) {
 
-        autor.innerHTML = "HM Surf - Writing All Day"
-        img.src = "images/smoking.gif"
         musica19.play()
         tocar.innerHTML = "‖"
         pausar = false
+
     }
-    
     else
     {
-
+    musica0.pause()
     musica1.pause()
     musica2.pause()
-    
-
+    musica3.pause()
+    musica4.pause()
 
     musica5.pause()
     musica6.pause()
     musica7.pause()
     musica8.pause()
     musica9.pause()
+
+    musica10.pause()
+    musica11.pause()
+    musica12.pause()
+    musica13.pause()
+    musica14.pause()
 
     musica15.pause()
     musica16.pause()
@@ -529,7 +655,7 @@ trovao.addEventListener("click", () => {
 
 var estatica = document.getElementById("estatica")
 var estaticaAudio  = new Audio("audios/Estatica.mp3")
-estaticaAudio.volume = 0.07
+estaticaAudio.volume = 0.03
 var ligarEstatica = true
 
 estatica.addEventListener("click", () => {

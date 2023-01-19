@@ -26,7 +26,6 @@ header {
     margin: 4% 0% 0% 0%;
     display: grid;
     place-content: center;
-    
 }
 
 
@@ -37,15 +36,30 @@ header {
     border: 2px solid black;
 }
 
+#horarioAtual {
+    margin: 1% auto 0%;
+    text-align: center;
+    padding: 1%;
+    height: fit-content;
+    width: fit-content;
+    border: 2px solid black;
+}
+
 .meio > details {
+
     margin-top: 0.5%;
     text-align: right;
     width: fit-content;
     position: absolute;
 }
 
-summary, ul {
-    text-align: left;
+
+summary {
+    border: 2px solid black;
+    font-size: larger;
+    text-align: center;
+    width: 133%;
+    margin: 0% 0% 0% 0%;
 }
 
 ul {
@@ -53,14 +67,9 @@ ul {
     margin-top: 0.5%;
     width: fit-content;
     position: fixed;
+    text-align: left;
 }
 
-summary {
-    font-size: larger;
-    text-align: center;
-    width: 120%;
-    margin: 0% 0% 0% 0%;
-}
 
 li {
 
